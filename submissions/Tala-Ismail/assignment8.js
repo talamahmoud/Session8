@@ -22,9 +22,9 @@ function simulateInputChange(callback) {
   callback('updated');
 }
 
-simulateInputChange((value) => formHandler.onChange(value));
-
-console.log(formHandler.value); 
+console.log("before: ",formHandler.value); 
+simulateInputChange(formHandler.onChange.bind(formHandler));
+console.log("After: ",formHandler.value); // predict output: "updated"
 
 //Task3: Method Extraction Issue
 const translator = {
